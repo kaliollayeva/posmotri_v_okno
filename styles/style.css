@@ -8,12 +8,24 @@ html {
   block-size: 100%;
 }
 
+button:focus,
+input:focus {
+  outline: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 1px solid whitesmoke;
+}
+
 .page {
-  inline-size: 1200px;
-  block-size: 100%;
+  width: 1200px;
+  height: 800px;
+  /* block-size: 100%; */
   margin: auto;
+  padding: 133px 30px;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -35,4 +47,224 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.visually-hidden {
+  position: absolute; /* элемент вырывают из потока */
+  width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
+  height: 1px;
+  margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
+  padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
+  border: 0; /* убирают границу, она тоже может быть у каких-то элементов */
+  clip: rect(
+    0 0 0 0
+  ); /* это свойство обрезает видимую область до нулевого значения */
+  overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
+}
+
+.content {
+  width: 1140px;
+  height: 534px;
+  gap: 30px;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.result {
+  width: 711px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.result__video-container {
+  width: 711px;
+  object-fit: contain;
+  position: relative;
+}
+
+.result__video {
+  width: 100%;
+  height: 386px;
+}
+
+.search-form {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 40px; */
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__label {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin: 2px;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid white;
+}
+
+.search-form__fieldset-title {
+  font-family: Fira Sans Condensed, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.6px;
+  margin-bottom: 5px;
+}
+
+.search-form__textfield {
+  width: 225px;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 18px;
+  color: white;
+  line-height: 21.6px;
+  background-color: transparent;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+  appearance: none;
+  border-right: none;
+  border-left: none;
+  margin: 2px;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 70%);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.search-form__checkbox-list {
+  width: 212px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.button {
+  height: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: center;
+
+  background-color: transparent;
+  color: white;
+  font-family: Fira Sans Condensed, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.6px;
+
+  border: 1px solid white;
+  cursor: pointer;
+  /* margin: 2px; */
+  box-sizing: border-box;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  align-self: flex-end;
+  box-sizing: border-box;
+}
+
+.more-button {
+  width: 396px;
+}
+
+.content__details {
+  width: 399px;
+  height: 534px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+.title {
+  font-family: Oswald, sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list {
+  height: 298px;
+  max-width: 399px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+  gap: 32px;
+  padding: 3px 3px 2px 3px;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.content__list-item {
+  /* margin-bottom: 32px; */
+}
+
+.content__list-item:focus-visible {
+  outline: 1px solid white;
+}
+
+.content__card-link {
+  text-decoration: none;
+}
+
+.content__video-card-title {
+  width: 198px;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.content__video-card-description {
+  color: white;
+  font-family: Fira Sans Condensed, sans-serif;
+  font-size: 18px;
+  line-height: 16.2px;
+}
+
+.content__video-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
 }

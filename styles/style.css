@@ -28,6 +28,9 @@ button:focus-visible {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -63,7 +66,6 @@ ol {
   width: 1140px;
   height: 534px;
   gap: 30px;
-
   display: flex;
   align-items: flex-end;
 }
